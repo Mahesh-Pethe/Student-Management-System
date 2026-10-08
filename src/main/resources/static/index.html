@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+
+    <!-- =====================================================
+         CREATE / UPDATE
+    ====================================================== -->
+
+    <div class="form-container">
+
+        <h2 id="formTitle">Create Student</h2>
+
+        <form id="studentForm">
+
+            <input type="hidden" id="studentId">
+
+            <div class="form-group">
+
+                <label for="name">Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter student name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="age">Age</label>
+
+                <input
+                    type="number"
+                    id="age"
+                    min="1"
+                    placeholder="Enter age"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="rollNo">Roll No</label>
+
+                <input
+                    type="number"
+                    id="rollNo"
+                    min="1"
+                    placeholder="Enter roll number"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="address">Address</label>
+
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Enter address"
+                    required
+                >
+
+            </div>
+
+
+            <div class="button-group">
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                    class="btn btn-primary">
+                    Create Student
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelButton"
+                    class="btn btn-secondary"
+                    onclick="cancelEdit()"
+                    style="display: none;">
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- =====================================================
+         SEARCH
+    ====================================================== -->
+
+    <div class="search-container">
+
+        <h2>Search Student</h2>
+
+        <div class="search-box">
+
+            <input
+                type="number"
+                id="searchId"
+                placeholder="Enter student ID"
+            >
+
+            <button
+                type="button"
+                class="btn btn-info"
+                onclick="getStudentById()">
+                Search
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="clearSearch()">
+                Clear
+            </button>
+
+        </div>
+
+        <div id="searchResult"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ACTIVE STUDENTS
+    ====================================================== -->
+
+    <div class="table-container">
+
+        <div class="table-header">
+
+            <h2>Active Students</h2>
+
+            <span class="table-description">
+                Students with isDeleted = false
+            </span>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Roll No</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="activeStudentTableBody">
+
+                <tr>
+
+                    <td colspan="8" class="no-data">
+                        Loading students...
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ALL STUDENTS
+    ====================================================== -->
+
+    <div class="table-container">
+
+        <div class="table-header">
+
+            <h2>All Students</h2>
+
+            <span class="table-description">
+                Active + Deleted Students
+            </span>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Roll No</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="allStudentTableBody">
+
+                <tr>
+
+                    <td colspan="8" class="no-data">
+                        Loading students...
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
